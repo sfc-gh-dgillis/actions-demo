@@ -4,7 +4,7 @@ vars:
   GREETING: Hello, World!
 
 tasks:
-  default:
+  hello-world:
     desc: Print a greeting message
     cmds:
       - echo "{{.GREETING}}"
