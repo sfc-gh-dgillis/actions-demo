@@ -1,13 +1,20 @@
 version: '3'
 
 includes:
-  snow-cli:
+  snow:
     taskfile: ./tasks/snow-cli/snowcli-tasks.yml
     dir: ./tasks/snow-cli
+
+env:
+  ENV_DIR: .env
+
+dotenv: ['{{ .ENV_DIR }}/{{ .DOTENV_FILENAME | default "demo.env" }}']
+
+tasks:
 
   test-snow-connection:
     desc: Test the Snowflake CLI connection.
     cmds:
-      - task: snow-cli:test-snow-connection
+      - task: snow:connection-test
         vars:
           CLI_CONNECTION_NAME: $CLI_CONNECTION_NAME
