@@ -37,10 +37,6 @@ jobs:
         with:
           default-config-file-path: ".snowflake/config.toml"
 
-      # Runs a single command using the runners shell
-      - name: Run a Taskfile task
-        run: task hello-world
-
         # Use the CLI
       - name: Execute Snowflake CLI command
         env:
