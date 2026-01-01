@@ -1,11 +1,13 @@
 version: '3'
 
-vars:
-  GREETING: Hello, World!
+includes:
+  snow-cli:
+    taskfile: ./tasks/snow-cli/snowcli-tasks.yml
+    dir: ./tasks/snow-cli
 
-tasks:
-  hello-world:
-    desc: Print a greeting message
+  test-snow-connection:
+    desc: Test the Snowflake CLI connection.
     cmds:
-      - echo "{{.GREETING}}"
-    silent: true
+      - task: snow-cli:test-snow-connection
+        vars:
+          CLI_CONNECTION_NAME: $CLI_CONNECTION_NAME

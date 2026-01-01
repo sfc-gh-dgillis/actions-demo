@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+
+  test-snow-connection:
+    desc: Sorts and processes all SQL files in the given directory. Sorts and executes SQL files with numeric prefixes (e.g., 001-schema.sql)
+    cmds:
+      - snow connection test -c "{{.CLI_CONNECTION_NAME}}"
