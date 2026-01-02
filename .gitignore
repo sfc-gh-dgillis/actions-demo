@@ -28,8 +28,11 @@ tasks.json
 *.so
 *.dylib
 
-# .env files
-*.env
+# .env directory
+.env/
+
+# allow demo.env file to be tracked
+!.env/demo.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
